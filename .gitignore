@@ -1,0 +1,20 @@
+# donnees et resultats (volumineux ou regenerables)
+data/
+results/
+img/
+docs/
+
+# environnement
+.venv/
+__pycache__/
+*.pyc
+
+# build latex
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# os
+.DS_Store
