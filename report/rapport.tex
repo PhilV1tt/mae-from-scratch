@@ -17,6 +17,20 @@
 \captionsetup{font=small,labelfont=bf}
 \setlength{\parskip}{0pt}
 
+\usepackage{stfloats}
+% flottants : laisser plus de place sur les pages de texte et densifier les
+% pages de figures, pour qu'elles ne s'accumulent pas en fin de document et ne
+% viennent pas couper la bibliographie
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.7}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\dblfloatpagefraction}{0.7}
+\setcounter{topnumber}{3}
+\setcounter{dbltopnumber}{3}
+\setcounter{totalnumber}{5}
+
 \lstset{
   basicstyle=\ttfamily\footnotesize,
   keywordstyle=\color{blue!60!black},
@@ -244,7 +258,7 @@ NEU, 10 étiquettes par classe & $\neueffrnd\,\%$ & $\neueffmae\,\%$ \\
 \label{tab:res}
 \end{table}
 
-\begin{figure*}[t]
+\begin{figure*}[tbp]
 \centering
 \includegraphics[width=0.45\textwidth]{figures/neu_efficiency.png}
 \hfill
@@ -270,14 +284,14 @@ pèsent plus que le taux de masquage. La perte de reconstruction décroît quand
 elle ne suit pas la qualité de la sonde. La perte n'est donc pas un bon indicateur de la qualité
 des représentations.
 
-\begin{figure*}[t]
+\begin{figure*}[tbp]
 \centering
 \includegraphics[width=0.86\textwidth]{figures/reconstruction.png}
 \caption{STL-10. Original, image masquée (75\,\%) et reconstruction par le MAE.}
 \label{fig:stlrecon}
 \end{figure*}
 
-\begin{figure}[t]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=\linewidth]{figures/loss_curves.png}
 \caption{STL-10 : perte de reconstruction par taux de masquage. Un taux plus faible donne une tâche
@@ -285,7 +299,7 @@ plus facile ; les pertes ne sont pas comparables entre taux, seule la sonde mesu
 \label{fig:loss}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=\linewidth]{figures/probe_ablation.png}
 \caption{STL-10. Exactitude de la sonde par taux de masquage, contre l'encodeur aléatoire et le
