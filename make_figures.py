@@ -35,7 +35,7 @@ if os.path.exists("results/ablation.json"):
     for r in res["ratios"]:
         plt.plot(lc[str(r)], label=f"mask {r}")
     plt.xlabel("époque"); plt.ylabel("perte MSE (patchs masqués)")
-    plt.title("STL-10 — perte de reconstruction")
+    plt.title("STL-10, perte de reconstruction")
     plt.legend(); plt.tight_layout(); plt.savefig(f"{FIG}/loss_curves.png", dpi=130); plt.close()
 
     if os.path.exists("results/recon.npz"):
@@ -67,7 +67,7 @@ if os.path.exists("results/neu.json"):
     plt.plot(totals, [neu["mae_eff"][str(k)] for k in pc], "o-", color=BLUE, label="MAE pré-entraîné")
     plt.plot(totals, [neu["rnd_eff"][str(k)] for k in pc], "s--", color="gray", label="encodeur aléatoire")
     plt.xlabel("nombre d'images étiquetées"); plt.ylabel("exactitude (6 défauts)")
-    plt.title("NEU — efficacité en annotations")
+    plt.title("NEU, efficacité en annotations")
     plt.legend(); plt.tight_layout(); plt.savefig(f"{FIG}/neu_efficiency.png", dpi=130); plt.close()
 
     # matrice de confusion
@@ -90,7 +90,7 @@ if os.path.exists("results/neu.json"):
                          color="white" if cm[i, j] > cm.max() / 2 else "black")
         short = [n[:5] for n in names]
         plt.xticks(range(K), short, rotation=45, fontsize=8); plt.yticks(range(K), short, fontsize=8)
-        plt.xlabel("prédit"); plt.ylabel("vrai"); plt.title("NEU — matrice de confusion")
+        plt.xlabel("prédit"); plt.ylabel("vrai"); plt.title("NEU, matrice de confusion")
         plt.tight_layout(); plt.savefig(f"{FIG}/neu_confusion.png", dpi=130); plt.close()
     print("NEU : ref %.3f | MAE %.3f" % (neu["acc_base"], neu["acc_full"]))
 
